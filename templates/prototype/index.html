@@ -68,9 +68,22 @@
 		{{ form }}
 		<input type="submit" value="submit" />
 	  </form>
+	
+	{% comment %}
+	{% if documents %}
+		<h4> Uploaded Files </h4>
+			{% for file in documents %}
+				<p>{{file.document}}</p>
+			{% endfor %}
+	{% endif %}
+	{% endcomment %}
 	{% if uploaded_data %}
 	    {{uploaded_data |safe}}
 	{% endif %}
+
+	<!-- This will be useful when we have another page. Don't forget to remove comment
+	<p><a href="{% comment %}{% url 'index' %} {% endcomment %} ">Return to home</a></p>
+	-->
     </div>
   </main>
 </div>
